@@ -5,6 +5,7 @@ import play.api.libs.json.{JsSuccess, Json}
 import lib.ResourcesHelper
 import models.JsonImplicits._
 import com.gu.prism.client.models._
+import org.joda.time.DateTime
 
 class JsonModelsSpec extends Specification with ResourcesHelper {
   "Json.parse" should {
@@ -17,6 +18,7 @@ class JsonModelsSpec extends Specification with ResourcesHelper {
       val instances = response.data.instances
       instances.length mustEqual 1
       response.sources.length mustEqual 2
+      response.lastUpdated mustEqual new DateTime(2014, 01, 27, 20, 01, 25, 128)
     }
   }
 }

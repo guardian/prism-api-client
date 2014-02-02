@@ -11,14 +11,14 @@ case class Origin(vendor: String, account: String)
 case class Source(resource: String,
                   status: String,
                   origin: Origin,
-                  createdAt: String,
+                  createdAt: DateTime,
                   age: Int,
                   stale: Boolean)
 
 case class Data(instances: List[Instance])
 
 case class ResponseData(status: String,
-                    lastUpdated: String,
+                    lastUpdated: DateTime,
                     stale: Boolean,
                     staleSources: List[String],
                     data: Data,

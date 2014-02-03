@@ -4,16 +4,12 @@ import scala.concurrent.{ExecutionContext, Future}
 import org.joda.time.LocalDate
 import play.api.libs.json.{JsError, JsSuccess, Reads, Json}
 
-object ApiClient {
-  val apiEndpoint = "http://example.com"
-}
-
 case class StatusError(statusCode: Int, statusLine: String)
   extends Exception(s"Expected 200 OK, got $statusCode $statusLine")
 case class ParseError(cause: JsError)
   extends Exception("Unable to parse JSON returned by Prism API")
 
-case class ApiClient(apiKey: String, http: Http, apiEndpoint: String = ApiClient.apiEndpoint) {
+case class ApiClient(apiKey: String, http: Http, apiEndpoint: String) {
   /** Extracts A from the JSON string or throws ParseError */
   private def extract[A: Reads](input: String): A =
     Json.fromJson[A](Json.parse(input)) match {

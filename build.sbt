@@ -7,7 +7,7 @@ scalaVersion := "2.10.3"
 version := "0.1-SNAPSHOT"
 
 resolvers ++= Seq(
-  "Guardian GitHub Releases" at "http://guardian.github.io/maven/repo-releases",
+  "Guardian GitHub Releases" at "https://guardian.github.io/maven/repo-releases",
   "Typesafe Repository" at "http://repo.typesafe.com/typesafe/releases/"
 )
 
